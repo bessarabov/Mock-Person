@@ -3,11 +3,25 @@
 use strict;
 use warnings;
 
+use Cwd;
+use File::Basename;
+
+use lib File::Basename::dirname( Cwd::abs_path(__FILE__)) . '/../lib';
 use Mock::Person;
 binmode STDOUT, ":utf8"; 
 
-for (my $i = 0; $i<30; $i++) {
-    print Mock::Person::name(sex => "female") . "\n";
-};
+print " Russian:\n", '-' x 80, "\n";
+for(0 .. 4) {
+  print Mock::Person::name(
+    sex     => 'male',
+    country => 'ru',
+  ), "\n";
+}
 
-
+print "\n Swedish:\n", '-' x 80, "\n";
+for(0 .. 4) {
+  print Mock::Person::name(
+    sex     => 'male',
+    country => 'sv',
+  ), "\n";
+}
