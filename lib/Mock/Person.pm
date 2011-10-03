@@ -12,7 +12,8 @@ Mock::Person - generates random last, first and middle name of person.
 use strict;
 use warnings;
 use utf8;
-our $VERSION = '0.01';
+use Carp;
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS 
 
@@ -48,16 +49,15 @@ sub name {
     my (%h) = @_;
 
     my $sex = $h{sex};
-    my $country= $h{country};
-    
+    my $country = uc($h{country});
+
     $sex ||= "male";
-    $country ||= "ru";
+    $country ||= "RU";
 
-    if (uc($country) eq "RU") {
-        use Mock::Person::RU;
-    };
+    eval "require Mock::Person::$country";
+    Carp::croak($@) if $@;
 
-    return Mock::Person::RU::name($sex);
+    return "Mock::Person::${country}"->can('name')->($sex);
 }
 
 =head1 AUTHOR
