@@ -1,6 +1,5 @@
 Changes
-Makefile.PL
-README
+examples/sample.pl
 inc/Module/AutoInstall.pm
 inc/Module/Install.pm
 inc/Module/Install/AutoInstall.pm
@@ -14,8 +13,10 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Mock/Person.pm
 lib/Mock/Person/RU.pm
-samle.pl
+lib/Mock/Person/SV.pm
+Makefile.PL
+MANIFEST
+README
 t/001_module_loader.t
 t/002_generate_person.t
 t/003_pod_coverage.t
-MANIFEST
