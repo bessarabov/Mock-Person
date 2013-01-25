@@ -11,4 +11,3 @@ like(Mock::Person::name( country=> 'ru', sex=> 'female'), qr/\w+\s\w+\s\w+/, 'na
 like(Mock::Person::name( sex=> 'male'), qr/\w+\s\w+\s\w+/, 'name sould match regexp');
 like(Mock::Person::name( sex=> 'female'), qr/\w+\s\w+\s\w+/, 'name sould match regexp');
 like(Mock::Person::name(), qr/\w+\s\w+\s\w+/, 'name sould match regexp');
-

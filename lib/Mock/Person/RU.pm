@@ -1098,7 +1098,7 @@ sub name {
     }
 }
 
-=head2 first_male 
+=head2 first_male
 
 Returns random fists name of male person.
 
@@ -1107,7 +1107,7 @@ sub first_male {
      return $first_male[rand @first_male];
 }
 
-=head2 first_female 
+=head2 first_female
 
 Returns random fists name of female person.
 
@@ -1116,7 +1116,7 @@ sub first_female {
      return $first_female[rand @first_female];
 }
 
-=head2 middle_male 
+=head2 middle_male
 
 Returns random middle name of male person.
 
@@ -1125,7 +1125,7 @@ sub middle_male {
      return $middle_male[rand @middle_male];
 }
 
-=head2 middle_female 
+=head2 middle_female
 
 Returns random middle name of female person.
 
@@ -1134,7 +1134,7 @@ sub middle_female {
      return $middle_female[rand @middle_female];
 }
 
-=head2 last_male 
+=head2 last_male
 
 Returns random last name of male person.
 
@@ -1143,7 +1143,7 @@ sub last_male {
      return $last_male[rand @last_male];
 }
 
-=head2 last_female 
+=head2 last_female
 
 Returns random last name of female person.
 

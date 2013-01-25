@@ -1,4 +1,5 @@
 Changes
+MANIFEST
 Makefile.PL
 README
 inc/Module/AutoInstall.pm
@@ -17,5 +18,3 @@ lib/Mock/Person/RU.pm
 samle.pl
 t/001_module_loader.t
 t/002_generate_person.t
-t/003_pod_coverage.t
-MANIFEST

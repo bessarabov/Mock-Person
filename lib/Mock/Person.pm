@@ -14,9 +14,9 @@ use warnings;
 use utf8;
 our $VERSION = '0.01';
 
-=head1 SYNOPSIS 
+=head1 SYNOPSIS
 
-    binmode STDOUT, ":utf8"; 
+    binmode STDOUT, ":utf8";
     use Mock::Person;
     print Mock::Person::name(sex => "male") . "\n";
     # Will print something like "Блохин Лев Владимирович"
@@ -49,7 +49,7 @@ sub name {
 
     my $sex = $h{sex};
     my $country= $h{country};
-    
+
     $sex ||= "male";
     $country ||= "ru";
 
@@ -64,7 +64,7 @@ sub name {
 
 Ivan Bessarabov, C<< <ivan@bessarabov.ru> >>
 
-=head1 SOURCE CODE 
+=head1 SOURCE CODE
 
 The source code for this module is hosted on GitHub http://github.com/bessarabov/Mock-Person
 
