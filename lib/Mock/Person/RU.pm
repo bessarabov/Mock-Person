@@ -35,7 +35,6 @@ http://rebenok.by/articles/names/stat/~do=rate
 use strict;
 use warnings;
 use utf8;
-our $VERSION = '0.01';
 
 my @first_male = qw(
 Владислав

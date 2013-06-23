@@ -1,18 +1,13 @@
 package Mock::Person;
 
+# ABSTRACT: generates random last, first and middle name of person.
+
 =encoding UTF-8
-=cut
-
-=head1 NAME
-
-Mock::Person - generates random last, first and middle name of person.
-
 =cut
 
 use strict;
 use warnings;
 use utf8;
-our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
@@ -59,10 +54,6 @@ sub name {
 
     return Mock::Person::RU::name($sex);
 }
-
-=head1 AUTHOR
-
-Ivan Bessarabov, C<< <ivan@bessarabov.ru> >>
 
 =head1 SOURCE CODE
 
