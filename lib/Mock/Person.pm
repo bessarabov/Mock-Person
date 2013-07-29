@@ -55,6 +55,14 @@ sub name {
     return Mock::Person::RU::name($sex);
 }
 
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item * Сергей Романов (SROMANOV)
+
+=back
+
 =head1 SOURCE CODE
 
 The source code for this module is hosted on GitHub http://github.com/bessarabov/Mock-Person
