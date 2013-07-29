@@ -5,3 +5,14 @@ Revision history for Mock::Person
 
 0.02    2013-06-23
         * Switched to Dist::Zilla
+
+1.0.0   2013-07-29
+        [Major]
+        * Using SemVer for version numbers
+
+        [Minor]
+        * Added CONTRIBUTORS section to POD
+        * Fix typo in filename, move to examples directory
+
+        [Patch]
+        * Reformat as per CPAN::Changes::Spec
