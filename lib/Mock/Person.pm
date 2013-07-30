@@ -2,14 +2,23 @@ package Mock::Person;
 
 # ABSTRACT: generates random last, first and middle name of person.
 
-=encoding UTF-8
-=cut
-
 use strict;
 use warnings;
 use utf8;
 
+## Hack - start
+#
+# There is a problem with Dist::Zilla PodWeaver
+# Because of that problem I had to put `=encoding UTF-8` after `=head1 SYNOPSIS`
+# But it should be in very top of the file.
+#
+# See details (in Russian language) at https://github.com/bessarabov/Mock-Person/issues/4
+#
+## Hack - end
+
 =head1 SYNOPSIS
+
+=encoding UTF-8
 
     binmode STDOUT, ":utf8";
     use Mock::Person;
