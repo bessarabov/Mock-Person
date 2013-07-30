@@ -16,6 +16,9 @@ use utf8;
     print Mock::Person::name(sex => "male") . "\n";
     # Will print something like "Блохин Лев Владимирович"
 
+Mock::Person uses Semantic Versioning standart for version numbers.
+Please visit L<http://semver.org/> to find out all about this great thing.
+
 =cut
 
 =head1 GENERAL FUNCTIONS
@@ -54,6 +57,14 @@ sub name {
 
     return Mock::Person::RU::name($sex);
 }
+
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item * Сергей Романов (SROMANOV)
+
+=back
 
 =head1 SOURCE CODE
 
