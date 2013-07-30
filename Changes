@@ -16,3 +16,7 @@ Revision history for Mock::Person
 
         [Patch]
         * Reformat as per CPAN::Changes::Spec
+
+1.0.1   2013-07-30
+        [Patch]
+        * Fixing russian symbols on cpan page
