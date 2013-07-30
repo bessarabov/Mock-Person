@@ -2,9 +2,6 @@ package Mock::Person;
 
 # ABSTRACT: generates random last, first and middle name of person.
 
-=encoding UTF-8
-=cut
-
 use strict;
 use warnings;
 use utf8;
