@@ -20,3 +20,7 @@ Revision history for Mock::Person
 1.0.1   2013-07-30
         [Patch]
         * Fixing russian symbols on cpan page
+
+1.0.2   2013-08-07
+        [Patch]
+        * Correct usage of Pod::Weaver
