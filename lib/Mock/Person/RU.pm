@@ -1,8 +1,5 @@
 package Mock::Person::RU;
 
-=encoding UTF-8
-=cut
-
 =head1 NAME
 
 Mock::Person::RU - background module for L<Mock::Person> that generates russians.
