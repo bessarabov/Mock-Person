@@ -1,7 +1,6 @@
 package Mock::Person::RU;
 
-=encoding UTF-8
-=cut
+# ENCODING: UTF-8
 
 =head1 NAME
 
