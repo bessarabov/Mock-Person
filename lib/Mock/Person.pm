@@ -11,7 +11,7 @@ use utf8;
 
     binmode STDOUT, ":utf8";
     use Mock::Person;
-    print Mock::Person::name(sex => "male") . "\n";
+    print Mock::Person::name(sex => "male", country => "ru") . "\n";
     # Will print something like "Блохин Лев Владимирович"
 
 Mock::Person uses Semantic Versioning standart for version numbers.
@@ -51,9 +51,12 @@ sub name {
 
     if (uc($country) eq "RU") {
         use Mock::Person::RU;
+        return Mock::Person::RU::name($sex);
+    }
+    elsif (uc($country) eq "US") {
+        use Mock::Person::US;
+        return Mock::Person::US::name($sex);
     };
-
-    return Mock::Person::RU::name($sex);
 }
 
 =head1 CONTRIBUTORS
