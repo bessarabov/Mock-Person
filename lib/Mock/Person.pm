@@ -184,6 +184,8 @@ The list is in alphabetical order.
 
 =item * Magnus Woldrich (WOLDRICH)
 
+=item * Michal Špaček (SKIM)
+
 =item * Toby Inkster (TOBYINK)
 
 =item * Сергей Романов (SROMANOV)
