@@ -26,8 +26,10 @@ foreach my $country_code ('ru', 'us', 'se') {
         };
         ok(not($@), "Shoule be able to create person $country_code $sex $@");
         ok(length($person->get_first_name()) > 0, "Got person first name");
-        ok(length($person->get_middle_name()) > 0, "Got person middle name");
         ok(length($person->get_last_name()) > 0, "Got person last name");
+        if ($person->has_middle_name()) {
+            ok(length($person->get_middle_name()) > 0, "Got person middle name");
+        }
     }
 }
 
