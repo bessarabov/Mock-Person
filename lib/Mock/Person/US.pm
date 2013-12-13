@@ -1,12 +1,7 @@
 package Mock::Person::US;
 
+# ABSTRACT: Support module to generate American names
 # ENCODING: UTF-8
-
-=head1 NAME
-
-Mock::Person::US - Support module to generate American names
-
-=cut
 
 =head1 DESCRIPTION
 
@@ -28,368 +23,346 @@ L<http://names.mongabay.com/male_names.htm>
 =cut
 
 use strict;
-use warnings;
+use warnings FATAL => 'all';
 use utf8;
+use open qw(:std :utf8);
 
-my @first_male = qw(
-james
-john
-robert
-michael
-william
-david
-richard
-charles
-joseph
-thomas
-christopher
-daniel
-paul
-mark
-donald
-george
-kenneth
-steven
-edward
-brian
-ronald
-anthony
-kevin
-jason
-matthew
-gary
-timothy
-josé
-larry
-jeffrey
-frank
-scott
-eric
-stephen
-andrew
-raymond
-gregory
-joshua
-jerry
-dennis
-walter
-patrick
-peter
-harold
-douglas
-henry
-carl
-arthur
-ryan
-roger
-joe
-juan
-jack
-albert
-jonathan
-justin
-terry
-gerald
-keith
-samuel
-willie
-ralph
-lawrence
-nicholas
-roy
-benjamin
-bruce
-brandon
-adam
-harry
-fred
-wayne
-billy
-steve
-louis
-jeremy
-aaron
-randy
-howard
-eugene
-carlos
-russell
-bobby
-victor
-martin
-ernest
-phillip
-todd
-jesse
-craig
-alan
-shawn
-clarence
-sean
-philip
-chris
-johnny
-earl
-jimmy
-antonio
+my @last_names = qw(
+    Smith
+    Johnson
+    Williams
+    Jones
+    Brown
+    Davis
+    Miller
+    Wilson
+    Moore
+    Taylor
+    Anderson
+    Thomas
+    Jackson
+    White
+    Harris
+    Martin
+    Thompson
+    García
+    Martínez
+    Robinson
+    Clark
+    Rodríguez
+    Lewis
+    Lee
+    Walker
+    Hall
+    Allen
+    Young
+    Hernández
+    King
+    Wright
+    López
+    Hill
+    Scott
+    Green
+    Adams
+    Baker
+    González
+    Nelson
+    Carter
+    Mitchell
+    Pérez
+    Roberts
+    Turner
+    Phillips
+    Campbell
+    Parker
+    Evans
+    Edwards
+    Collins
+    Stewart
+    Sánchez
+    Morris
+    Rogers
+    Reed
+    Cook
+    Morgan
+    Bell
+    Murphy
+    Bailey
+    Rivera
+    Cooper
+    Richardson
+    Cox
+    Howard
+    Ward
+    Torres
+    Peterson
+    Gray
+    Ramírez
+    James
+    Watson
+    Brooks
+    Kelly
+    Sanders
+    Price
+    Bennett
+    Wood
+    Barnes
+    Ross
+    Henderson
+    Coleman
+    Jenkins
+    Perry
+    Powell
+    Long
+    Patterson
+    Hughes
+    Flores
+    Washington
+    Butler
+    Simmons
+    Foster
+    Gonzales
+    Bryant
+    Alexander
+    Russell
+    Griffin
+    Díaz
+    Hayes
 );
 
-my @first_female = qw(
-mary
-patricia
-linda
-barbara
-elizabeth
-jennifer
-maria
-susan
-margaret
-dorothy
-lisa
-nancy
-karen
-betty
-helen
-sandra
-donna
-carol
-ruth
-sharon
-michelle
-laura
-sarah
-kimberly
-deborah
-jessica
-shirley
-cynthia
-angela
-melissa
-brenda
-amy
-anna
-rebecca
-virginia
-kathleen
-pamela
-martha
-debra
-amanda
-stephanie
-carolyn
-christine
-marie
-janet
-catherine
-frances
-ann
-joyce
-diane
-alice
-julie
-heather
-teresa
-doris
-gloria
-evelyn
-jean
-cheryl
-mildred
-katherine
-joan
-ashley
-judith
-rose
-janice
-kelly
-nicole
-judy
-christina
-kathy
-theresa
-beverly
-denise
-tammy
-irene
-jane
-lori
-rachel
-marilyn
-andrea
-kathryn
-louise
-sara
-anne
-jacqueline
-wanda
-bonnie
-julia
-ruby
-lois
-tina
-phyllis
-norma
-paula
-diana
-annie
-lillian
-emily
-robin
-);
-
-my @last_name = qw(
-smith
-johnson
-williams
-jones
-brown
-davis
-miller
-wilson
-moore
-taylor
-anderson
-thomas
-jackson
-white
-harris
-martin
-thompson
-garcía
-martínez
-robinson
-clark
-rodríguez
-lewis
-lee
-walker
-hall
-allen
-young
-hernández
-king
-wright
-lópez
-hill
-scott
-green
-adams
-baker
-gonzález
-nelson
-carter
-mitchell
-pérez
-roberts
-turner
-phillips
-campbell
-parker
-evans
-edwards
-collins
-stewart
-sánchez
-morris
-rogers
-reed
-cook
-morgan
-bell
-murphy
-bailey
-rivera
-cooper
-richardson
-cox
-howard
-ward
-torres
-peterson
-gray
-ramírez
-james
-watson
-brooks
-kelly
-sanders
-price
-bennett
-wood
-barnes
-ross
-henderson
-coleman
-jenkins
-perry
-powell
-long
-patterson
-hughes
-flores
-washington
-butler
-simmons
-foster
-gonzales
-bryant
-alexander
-russell
-griffin
-díaz
-hayes
-);
-
-=head1 FUNCTIONS
-
-=head2 name
-
-Receives scalar with sex of the person ('male' or 'female') and returns
-scalar with generated name.
-
-=cut
-
-sub name {
-    my ($sex) = @_;
-    # First Middle Last
-    if ($sex eq "female") {
-        return join(' ', map { ucfirst $_ }
-            first_female(), first_female(), last_name());
-    }
-    else {
-        return join(' ', map { ucfirst $_ }
-            first_male(), first_male(), last_name());
-    }
+sub get_male_first_names {
+    return qw(
+        James
+        John
+        Robert
+        Michael
+        William
+        David
+        Richard
+        Charles
+        Joseph
+        Thomas
+        Christopher
+        Daniel
+        Paul
+        Mark
+        Donald
+        George
+        Kenneth
+        Steven
+        Edward
+        Brian
+        Ronald
+        Anthony
+        Kevin
+        Jason
+        Matthew
+        Gary
+        Timothy
+        José
+        Larry
+        Jeffrey
+        Frank
+        Scott
+        Eric
+        Stephen
+        Andrew
+        Raymond
+        Gregory
+        Joshua
+        Jerry
+        Dennis
+        Walter
+        Patrick
+        Peter
+        Harold
+        Douglas
+        Henry
+        Carl
+        Arthur
+        Ryan
+        Roger
+        Joe
+        Juan
+        Jack
+        Albert
+        Jonathan
+        Justin
+        Terry
+        Gerald
+        Keith
+        Samuel
+        Willie
+        Ralph
+        Lawrence
+        Nicholas
+        Roy
+        Benjamin
+        Bruce
+        Brandon
+        Adam
+        Harry
+        Fred
+        Wayne
+        Billy
+        Steve
+        Louis
+        Jeremy
+        Aaron
+        Randy
+        Howard
+        Eugene
+        Carlos
+        Russell
+        Bobby
+        Victor
+        Martin
+        Ernest
+        Phillip
+        Todd
+        Jesse
+        Craig
+        Alan
+        Shawn
+        Clarence
+        Sean
+        Philip
+        Chris
+        Johnny
+        Earl
+        Jimmy
+        Antonio
+    );
 }
 
-=head2 first_male
-
-Returns random first name of male person.
-
-=cut
-
-sub first_male {
-     return ucfirst($first_male[rand @first_male]);
+sub get_female_first_names {
+    return qw(
+        Mary
+        Patricia
+        Linda
+        Barbara
+        Elizabeth
+        Jennifer
+        Maria
+        Susan
+        Margaret
+        Dorothy
+        Lisa
+        Nancy
+        Karen
+        Betty
+        Helen
+        Sandra
+        Donna
+        Carol
+        Ruth
+        Sharon
+        Michelle
+        Laura
+        Sarah
+        Kimberly
+        Deborah
+        Jessica
+        Shirley
+        Cynthia
+        Angela
+        Melissa
+        Brenda
+        Amy
+        Anna
+        Rebecca
+        Virginia
+        Kathleen
+        Pamela
+        Martha
+        Debra
+        Amanda
+        Stephanie
+        Carolyn
+        Christine
+        Marie
+        Janet
+        Catherine
+        Frances
+        Ann
+        Joyce
+        Diane
+        Alice
+        Julie
+        Heather
+        Teresa
+        Doris
+        Gloria
+        Evelyn
+        Jean
+        Cheryl
+        Mildred
+        Katherine
+        Joan
+        Ashley
+        Judith
+        Rose
+        Janice
+        Kelly
+        Nicole
+        Judy
+        Christina
+        Kathy
+        Theresa
+        Beverly
+        Denise
+        Tammy
+        Irene
+        Jane
+        Lori
+        Rachel
+        Marilyn
+        Andrea
+        Kathryn
+        Louise
+        Sara
+        Anne
+        Jacqueline
+        Wanda
+        Bonnie
+        Julia
+        Ruby
+        Lois
+        Tina
+        Phyllis
+        Norma
+        Paula
+        Diana
+        Annie
+        Lillian
+        Emily
+        Robin
+    );
 }
 
-=head2 first_female
-
-Returns random first name of female person.
-
-=cut
-
-sub first_female {
-     return ucfirst($first_female[rand @first_female]);
+sub get_male_middle_names {
+    return get_male_first_names();
 }
 
-=head2 last_name
+sub get_female_middle_names {
+    return get_female_first_names();
+}
 
-Returns random last name of male or female person.
+sub get_male_last_names {
+    return @last_names;
+}
 
-=cut
+sub get_female_last_names {
+    return @last_names;
+}
 
-sub last_name {
-     return ucfirst($last_name[rand @last_name]);
+sub generate_name {
+    my ($self, %params) = @_;
+
+    return $params{first}
+        . " " . $params{middle}
+        . " " . $params{last}
+        ;
 }
 
 1;

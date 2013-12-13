@@ -1,63 +1,170 @@
 package Mock::Person;
 
-# ABSTRACT: generates random last, first and middle name of person.
+# ABSTRACT: generate random person names
 # ENCODING: UTF-8
 
 use strict;
-use warnings;
+use warnings FATAL => 'all';
 use utf8;
+use open qw(:std :utf8);
+
+use Carp;
 
 =head1 SYNOPSIS
 
-    binmode STDOUT, ":utf8";
+    use open qw(:std :utf8);
+
     use Mock::Person;
-    print Mock::Person::name(sex => "male", country => "ru") . "\n";
-    # Will print something like "Блохин Лев Владимирович"
+
+    # This will create person with randomly selected name
+    my $person = Mock::Person->new(
+        sex => "male",
+        country => "us",
+    );
+
+    $person->get_first_name(); # For example, it can be 'John'
+    $person->get_last_name(); # 'Smith', or some other name
+
+    # The method will die if there is no middle name in that country
+    $person->get_middle_name();
+
+    $person->has_middle_name(); # To check if there is middle name
+
+    $person->get_name(); # 'John Smith'
+
+    $person->get_sex(); # 'male'
+    $person->get_country(); # 'ru'
 
 Mock::Person uses Semantic Versioning standart for version numbers.
 Please visit L<http://semver.org/> to find out all about this great thing.
 
 =cut
 
-=head1 GENERAL FUNCTIONS
+my $true = 1;
+my $false = '';
 
-=head2 name
+=method new
 
-Recieves optional hash of parametes:
+The constructor. It recieves hash of parametes. All parameters are mandatory.
 
 =over
 
 =item B<sex>
 
-Sets sex of the person. Can be 'male' or 'female'. Default value is 'male'.
+Sets sex of the person. Can be 'male' or 'female'.
 
 =item B<country>
 
-Sets the ethnic group of person's name. Default value is 'ru'.
+Sets the ethnic group of person's name.
+
+The value is a two-letter country code ISO 3166-1 alpha-2.
+L<http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>.
 
 =back
 
-Returns scalar with generated name.
+    my $person = Mock::Person->new(
+        sex => "male",
+        country => "us",
+    );
 
 =cut
-sub name {
-    my (%h) = @_;
 
-    my $sex = $h{sex};
-    my $country= $h{country};
+sub new {
+    my ($class, %params) = @_;
 
-    $sex ||= "male";
-    $country ||= "ru";
+    my $sex = lc(delete $params{sex});
+    my @known_sexes = qw(male female);
+    croak "Expected sex to be one of " . join(", ", @known_sexes) . ". Stopped" if not grep {$_ eq $sex} @known_sexes;
 
-    if (uc($country) eq "RU") {
-        use Mock::Person::RU;
-        return Mock::Person::RU::name($sex);
+    my $country = lc(delete $params{country});
+
+    my $plugin = "Mock::Person::" . uc($country);
+    eval "require $plugin" or croak sprintf("Sorry, but country with code %s is not supported. Stopped", uc($country));
+
+    my $self = {};
+    bless $self, $class;
+
+    foreach my $part (qw(first middle last)) {
+        my $method = "get_${sex}_${part}_names";
+
+        if ($plugin->can($method)) {
+            my @list = $plugin->$method;
+            $self->{"_${part}_name"} = $list[rand @list];
+            $self->{_has_middle_name} = $true if $part eq 'middle';
+        } elsif ($part eq 'middle') {
+            $self->{_has_middle_name} = $false;
+        } else {
+            croak sprintf(
+                "Error in code. Can't find method %s in plugin %s. Stopped",
+                $method,
+                $plugin,
+            );
+        }
     }
-    elsif (uc($country) eq "US") {
-        use Mock::Person::US;
-        return Mock::Person::US::name($sex);
-    };
+
+    $self->{_name} = $plugin->generate_name(
+        first => $self->{_first_name},
+        last => $self->{_last_name},
+        (
+            $self->{_has_middle_name} ? (middle => $self->{_middle_name}) : ()
+        ),
+    );
+
+
+    $self->{_country} = $country;
+    $self->{_sex} = $sex;
+
+    return $self;
 }
+
+=method get_first_name
+=cut
+
+sub get_first_name { return $_[0]->{_first_name}; }
+
+=method get_last_name
+=cut
+
+sub get_last_name { return $_[0]->{_last_name}; }
+
+=method get_middle_name
+=cut
+
+sub get_middle_name {
+    my ($self) = @_;
+
+    if ($self->has_middle_name()) {
+        return $self->{_middle_name};
+    } else {
+        croak sprintf("Person for the country '%s' don't have middle name", $self->get_country());
+    }
+}
+
+=method has_middle_name
+=cut
+
+sub has_middle_name { return $_[0]->{_has_middle_name}; }
+
+=method get_name
+=cut
+
+sub get_name { return $_[0]->{_name}; }
+
+=method get_country
+
+Returns two-letter country code in lowercase. Example 'en', 'ru'.
+
+=cut
+
+sub get_country { return $_[0]->{_country}; }
+
+=method get_sex
+
+Returns 'male' or 'female'.
+
+=cut
+
+sub get_sex { return $_[0]->{_sex}; }
 
 =head1 SEE ALSO
 
