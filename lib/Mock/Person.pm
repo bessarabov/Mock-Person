@@ -63,6 +63,8 @@ sub name {
 
 =over 4
 
+=item * Gene Boggs (GENE)
+
 =item * Сергей Романов (SROMANOV)
 
 =back
