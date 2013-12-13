@@ -18,7 +18,7 @@ ok($@, "Can't create object with incorrect country code");
 eval { Mock::Person->new( country => 'ru', sex => 'no_such_sex' ) };
 ok($@, "Can't create object with incorrect sex");
 
-foreach my $country_code ('ru', 'us', 'se', 'sk', 'cz') {
+foreach my $country_code ('ru', 'us', 'se', 'sk', 'cz', 'de') {
     foreach my $sex ('male', 'female') {
         my $person;
         eval {
