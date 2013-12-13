@@ -18,13 +18,13 @@ ok($@, "Can't create object with incorrect country code");
 eval { Mock::Person->new( country => 'ru', sex => 'no_such_sex' ) };
 ok($@, "Can't create object with incorrect sex");
 
-foreach my $country_code ('ru', 'us') {
+foreach my $country_code ('ru', 'us', 'se') {
     foreach my $sex ('male', 'female') {
         my $person;
         eval {
             $person = Mock::Person->new( country => $country_code, sex => $sex );
         };
-        ok(not($@), "Shoule be able to create person $country_code $sex");
+        ok(not($@), "Shoule be able to create person $country_code $sex $@");
         ok(length($person->get_first_name()) > 0, "Got person first name");
         ok(length($person->get_middle_name()) > 0, "Got person middle name");
         ok(length($person->get_last_name()) > 0, "Got person last name");

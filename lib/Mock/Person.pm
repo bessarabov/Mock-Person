@@ -182,6 +182,8 @@ The list is in alphabetical order.
 
 =item * Gene Boggs (GENE)
 
+=item * Magnus Woldrich (WOLDRICH)
+
 =item * Toby Inkster (TOBYINK)
 
 =item * Сергей Романов (SROMANOV)
