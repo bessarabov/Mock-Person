@@ -176,9 +176,13 @@ sub get_sex { return $_[0]->{_sex}; }
 
 =head1 CONTRIBUTORS
 
+The list is in alphabetical order.
+
 =over 4
 
 =item * Gene Boggs (GENE)
+
+=item * Toby Inkster (TOBYINK)
 
 =item * Сергей Романов (SROMANOV)
 
