@@ -59,6 +59,14 @@ sub name {
     };
 }
 
+=head1 SEE ALSO
+
+=over
+
+=item * L<Data::RandomPerson>
+
+=back
+
 =head1 CONTRIBUTORS
 
 =over 4
