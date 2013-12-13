@@ -3,12 +3,6 @@ package Mock::Person::RU;
 # ABSTRACT: Support module to generate Russian names
 # ENCODING: UTF-8
 
-=head1 NAME
-
-Mock::Person::RU - background module for L<Mock::Person> that generates russians.
-
-=cut
-
 =head1 DESCRIPTION
 
 Data for this module was found on these pages:
