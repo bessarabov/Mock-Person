@@ -33,7 +33,7 @@ use Carp;
     $person->get_name(); # 'John Smith'
 
     $person->get_sex(); # 'male'
-    $person->get_country(); # 'ru'
+    $person->get_country(); # 'us'
 
 Mock::Person uses Semantic Versioning standart for version numbers.
 Please visit L<http://semver.org/> to find out all about this great thing.
