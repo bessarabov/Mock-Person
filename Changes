@@ -24,3 +24,7 @@ Revision history for Mock::Person
 1.0.2   2013-08-07
         [Patch]
         * Correct usage of Pod::Weaver
+
+1.1.0   2013-12-13
+        [Minor]
+        * Added US person handling
