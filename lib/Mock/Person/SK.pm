@@ -1,7 +1,6 @@
 package Mock::Person::SK;
 
 # ABSTRACT: Support module to generate Slovak names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 

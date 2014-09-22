@@ -1,7 +1,6 @@
 package Mock::Person::DE;
 
 # ABSTRACT: Support module to generate German names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 
