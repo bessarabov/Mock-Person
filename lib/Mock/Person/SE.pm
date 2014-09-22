@@ -1,7 +1,6 @@
 package Mock::Person::SE;
 
 # ABSTRACT: Support module to generate Swedish names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 

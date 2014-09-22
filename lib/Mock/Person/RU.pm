@@ -1,7 +1,6 @@
 package Mock::Person::RU;
 
 # ABSTRACT: Support module to generate Russian names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 

@@ -1,7 +1,6 @@
 package Mock::Person::CZ;
 
 # ABSTRACT: Support module to generate Czech names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 

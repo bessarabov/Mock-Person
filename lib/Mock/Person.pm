@@ -1,7 +1,6 @@
 package Mock::Person;
 
 # ABSTRACT: generate random person names
-# ENCODING: UTF-8
 
 use strict;
 use warnings FATAL => 'all';

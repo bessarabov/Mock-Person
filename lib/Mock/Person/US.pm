@@ -1,7 +1,6 @@
 package Mock::Person::US;
 
 # ABSTRACT: Support module to generate American names
-# ENCODING: UTF-8
 
 =head1 DESCRIPTION
 
